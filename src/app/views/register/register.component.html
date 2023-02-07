@@ -1,2 +1,89 @@
 <app-navbar></app-navbar>
-<p>register works!</p>
+
+<h1>Register Form</h1>
+<div>
+    <form [formGroup]="registerform" (ngSubmit)="submit()">
+        <div class="row g-1 mb-3">
+            <div class="mx-md-3 text-center text-md-end col-12 col-md-4 col-lg-3">
+                <label for="mail">Email:</label>
+            </div>
+
+            <div class="text-center text-md-start text-lg-center col-12 col-md-7 col-lg-2">
+                <input id="mail" type="text" formControlName="mail">
+            </div>
+
+            <div class="text-center text-lg-start col-12 col-md-12 col-lg-3">
+                <span class="text-danger"
+                    *ngIf="this.registerform.get('mail')?.errors?.['pattern'] && this.registerform.get('mail')?.touched">
+                    Does not have email format!
+                </span>
+                <span class="text-danger"
+                    *ngIf="this.registerform.get('mail')?.errors?.['required'] && this.registerform.get('mail')?.touched">
+                    the mail can not be empty!
+                </span>
+            </div>
+        </div>
+        
+        <div class="row g-1 mb-3">
+            <div class="mx-md-3 text-center text-md-end col-12 col-md-4 col-lg-3">
+                <label for="name">Name:</label>
+            </div>
+
+            <div class="text-center text-md-start text-lg-center col-12 col-md-7 col-lg-2">
+                <input id="name" type="text" formControlName="name">
+            </div>
+
+            <div class="text-center text-lg-start col-12 col-md-12 col-lg-3">
+                <span class="text-danger"
+                    *ngIf="this.registerform.get('name')?.errors?.['required'] && this.registerform.get('name')?.touched">
+                    The name can not be empty!
+                </span>
+                <span class="text-danger"
+                    *ngIf="this.registerform.get('name')?.errors?.['minlength'] && this.registerform.get('name')?.touched">
+                    The name need 3 characters at least!
+                </span>
+            </div>
+        </div>
+
+        <div class="row g-1 mb-3">
+            <div class="mx-md-3 text-center text-md-end col-12 col-md-4 col-lg-3">
+                <label for="password">Password:</label>
+            </div>
+
+            <div class="text-center text-md-start text-lg-center col-12 col-md-7 col-lg-2">
+                <input id="password" type="password" formControlName="password">
+            </div>
+
+            <div class="text-center text-lg-start col-12 col-md-12 col-lg-3">
+                <span class="text-danger" *ngIf="this.registerform.get('password')?.errors?.['required'] && this.registerform.get('password')?.touched">
+                    The password can not be empty!
+                </span>
+                <span class="text-danger" *ngIf="this.registerform.get('password')?.errors?.['minlength'] && this.registerform.get('password')?.touched">
+                    The password need 8 characters at least!
+    
+                </span>
+            </div>
+        </div>
+
+        <div class="row g-1 mb-3">
+            <div class="mx-md-3 text-center text-md-end col-12 col-md-4 col-lg-3">
+                <label for="rpassword">Confirm password:</label>
+            </div>
+
+            <div class="text-center text-md-start text-lg-center col-12 col-md-7 col-lg-2">
+                <input id="rpassword" type="password" formControlName="rpassword"
+                appRepiteCont [parametro]="this.registerform.value.password">
+            </div>
+
+            <div class="text-center text-lg-start col-12 col-md-12 col-lg-3">
+                <span class="text-danger"
+                    *ngIf="this.registerform.get('rpassword')?.errors?.['rpassword'] && this.registerform.get('rpassword')?.touched">
+                    the passwords doesn't match!
+                </span>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="registerform.invalid">REGISTRATE</button>
+
+    </form>
+</div>

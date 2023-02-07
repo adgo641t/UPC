@@ -12,6 +12,8 @@ import { RegisterComponent } from './views/register/register.component';
 import { ErrorPageComponent } from './views/error-page/error-page.component';
 import { NavbarComponent } from './views/navbar/navbar.component';
 import { FooterComponent } from './views/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RepitePassDirective } from './directives/repite-pass.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,11 +25,13 @@ import { FooterComponent } from './views/footer/footer.component';
     ErrorPageComponent,
     NavbarComponent,
     FooterComponent,
+    RepitePassDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
