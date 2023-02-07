@@ -1,20 +1,52 @@
 <app-navbar></app-navbar>
+<div class="bg-warning">
 <div class="container text-center">
     <h1>Show games</h1>
-    <div class="ratio ratio-16x9">
-        <iframe src="../../../Media/Video/video_multijuegos.mp4" title="Video_MultiJuegos" type="video/mp4"
-            allowfullscreen></iframe>
+
+    <video width="900"  controls>
+      <source src="assets/video/video_multijuegos.webm" type="video/webm">
+    Your browser does not support the video tag.
+    </video> 
+    <div>
+      <button><a class="text-decoration-none" target="_blank" href="https://github.com/adgo641t/UPC">Code Game</a></button>
     </div>
-    <button>Play</button>
 </div>
 
-<!-- <iframe src="../../../Media/Video/video_multijuegos.mp4" title="Video_MultiJuegos" type="video/mp4" allowfullscreen></iframe> -->
+  <div id="titulo" class="container-flex p-5">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center text-dark display-1">Ranking</h1>
+        </div>
+    </div>
+</div>
 
-<!-- <div id="container">
-    <iframe width="560" height="315" src="../../../src/Media/Video/video_multijuegos.mp4" frameborder="0" allowfullscreen></iframe>
-  </div> -->
-
-<!-- <video class="w-100" autoplay loop muted>
-    <source src="../../../Media/Video/video_multijuegos.mp4" type="video/mp4" />
-  </video> -->
+<div id="tabla-ranking" class="container p-5">
+    <h1 class="text-center display-4 text-white">¡Jugadores con más partidas ganadas!</h1>
+    <table class="table table-hover table-borderless table-striped mt-5 text-center" style="background-color: #F28627;">
+        <thead style="background-color: #c22222;">
+            <tr>
+                <th scope="col">Ranking</th>
+                <th scope="col">Avatar</th>
+                <th scope="col">Jugador</th>
+                <th scope="col">Victorias</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"></th>
+                <td class="w-25">
+                    <img src="" class="rounded-circle" width="75" height="75">
+                </td>
+                <td> </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <!-- <div class="col-sm-12 d-flex justify-content-end">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div> -->
+    </div>
+</div>
+</div>
 <app-footer></app-footer>
