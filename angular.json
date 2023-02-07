@@ -106,5 +106,8 @@
       }
     }
   },
-  "defaultProject": "UPC"
+  "defaultProject": "UPC",
+  "cli": {
+    "analytics": false
+  }
 }
