@@ -14,6 +14,7 @@ import { NavbarComponent } from './views/navbar/navbar.component';
 import { FooterComponent } from './views/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RepitePassDirective } from './directives/repite-pass.directive';
+import { RankingComponent } from './views/ranking/ranking.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { RepitePassDirective } from './directives/repite-pass.directive';
     NavbarComponent,
     FooterComponent,
     RepitePassDirective,
+    RankingComponent,
   ],
   imports: [
     BrowserModule,
