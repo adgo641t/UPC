@@ -9,7 +9,7 @@ export class GetDataService {
   constructor(private http:HttpClient) { }
 
   consultaGET(parametros: any){
-    return this.http.get('http://localhost:3000/daw2',
+    return this.http.get('http://localhost:3001',
     {
       params: parametros,
       responseType: "json"
