@@ -1,2 +1,2 @@
-node_modules
-.angular/cache/*
+Frontend/node_modules
+Frontend/.angular/cache/*
