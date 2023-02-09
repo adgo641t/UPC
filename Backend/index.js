@@ -22,7 +22,7 @@ app.use( bodyParser.json() );
 
 app.get('/login', (req, res) => {
 
-    connection.query('SELECT * FROM partidas', function (error, results, field) {
+    connection.query('SELECT * FROM users', function (error, results, field) {
         if (error) {
           res.status(400).send({ results: null })
         } else {//si todos OK
