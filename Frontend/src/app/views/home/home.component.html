@@ -1,14 +1,37 @@
 <!--Slider-->
 <div class="container col-lg-12 col-lg-6 col-sm-3">
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#slider1" data-slide-to="0" class="active"></li>
+      <li data-target="#slider2" data-slide-to="1"></li>
+      <li data-target="#slider3" data-slide-to="2"></li>
+    </ol>
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item active" id="slider1">
           <img class="d-block w-100" src="https://icebreakerideas.com/wp-content/uploads/2021/04/Pictionary-Game-e1619834659484.jpg" alt="First slide">
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item" id="slider2">
           <img class="d-block w-100" src="https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg" alt="Second slide">
         </div>
+        <div class="carousel-item" id="slider3">
+          <div class="carousel-caption">
+            <img class="d-block w-100" src="https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg" alt="Second slide">
+          </div>        
+        </div>
+        <div class="carousel-item" id="slider4">
+          <div class="carousel-caption">
+              <img class="d-block w-100" src="https://files.realpython.com/media/Build-an-AI-Game-Engine-for-Tic-Tac-Toe-in-Python_Watermarked.b90cdf84c417.jpg" alt="Second slide">
+          </div>
+        </div>
       </div>
+      <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
     <br>
     <h1 style="text-align:center">Creators of the Game</h1>
