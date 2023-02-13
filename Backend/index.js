@@ -20,7 +20,7 @@ app.use( bodyParser.urlencoded({ extended: false }) );
 app.use( bodyParser.json() );
 
 
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
 
     connection.query('SELECT * FROM users', function (error, results, field) {
         if (error) {

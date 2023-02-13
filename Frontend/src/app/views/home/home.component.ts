@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { GetDataService } from 'src/app/service/get-data.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+
+  
+
+  constructor(private http:HttpClient, private getData:GetDataService) { }
 
   ngOnInit(): void {
   }

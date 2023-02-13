@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PortadaComponent } from './components/portada/portada.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './views/home/home.component';
 import { ShowGameComponent } from './views/show-game/show-game.component';
@@ -18,7 +17,6 @@ import { RankingComponent } from './views/ranking/ranking.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PortadaComponent,
     HomeComponent,
     ShowGameComponent,
     LoginComponent,
