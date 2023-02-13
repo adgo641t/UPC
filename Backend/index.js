@@ -17,11 +17,7 @@ var connection = mysql.createConnection({
 
 });
 
-function hashPassword(password) {
-  const saltRounds = 10;
-  const hash =  bcrypt.hash(password, saltRounds);
-  return hash;
-}
+
 
 app.use(cors());
 app.use( bodyParser.urlencoded({ extended: false }) );
@@ -50,18 +46,18 @@ app.post('/login', (req, res) => {
      
 });
 
-app.post('/register', (req, res) => {
+app.post('/register', async (req, res) => {
   console.log("entro al register");
   console.log(req.body);
   const { _username, _password, _email } = req.body;
 
-  let id = 4;
+  let id = 5;
 
-  const hash = hashPassword(_password);
+  const hash = await bcrypt.hash(_password, 1);
 
   let query = `INSERT INTO users (id,Username, User_Email, password, rols) VALUES ('${id}','${_username}', '${_email}', '${hash}', 'User')`;
 
-  connection.query(query, function (error, results, field) {
+   connection.query(query, function (error, results, field) {
     if (error) {
       res.status(400).send({ results: null })
       console.log(error);
