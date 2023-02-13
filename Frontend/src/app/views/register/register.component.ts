@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { User } from 'src/app/model/user';
+import { GetDataService } from 'src/app/service/get-data.service';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +9,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  constructor(/*public usersService: RegisteredUsersService*/) { }
+
+  public user!: User;
+
+  constructor(public usersService: GetDataService) { }
 
   registerform = new FormGroup({
     name: new FormControl('', [
@@ -36,23 +41,15 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  submit() {
+  sendRegisterForm() {
     let name = this.registerform.value.name!;
     let pass = this.registerform.value.password!;
     let mail = this.registerform.value.mail!;
-    console.log(name);
-    console.log(pass);
-    console.log(mail);
 
-    /*
-        let user = new User(0, name, pass, mail, civilStat, sex, info, check == 'true');
-        console.log(user);
-    
-        this.usersService.register(user)
-    
-          console.log("OK redirigiendo...")
-          console.log(this.usersService.users)
-          location.href = "login";
-    */
+    this.user = new User(name, pass, mail);
+
+    console.log(this.user);
+
+    this.usersService.sendRegister(this.user).subscribe(res => {console.log(res)});
   }
 }

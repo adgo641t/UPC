@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   
   public username!: string;
   public password!: string;
+  public email!: string;
 
   LoginForm = this.formBuilder.group({
     username: '',
@@ -30,8 +31,9 @@ export class LoginComponent implements OnInit {
   }
 
   sendLogin(){
+    this.email = 'test';
     
-    this.newUser = new User(this.LoginForm.get(['username'])?.value, this.LoginForm.get(['password'])?.value);
+    this.newUser = new User(this.LoginForm.get(['username'])?.value, this.LoginForm.get(['password'])?.value, this.email);
 
     this.httpService.sendLogin(this.newUser).subscribe(res => {console.log(res)});
 

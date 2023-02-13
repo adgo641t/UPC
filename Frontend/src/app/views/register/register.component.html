@@ -1,6 +1,6 @@
 <h1>Register Form</h1>
 <div>
-    <form [formGroup]="registerform" (ngSubmit)="submit()">
+    <form [formGroup]="registerform">
         <div class="row g-1 mb-3">
             <div class="mx-md-3 text-center text-md-end col-12 col-md-4 col-lg-3">
                 <label for="mail">Email:</label>
@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-success" [disabled]="registerform.invalid">REGISTRATE</button>
+        <button type="submit" class="btn btn-success" (click)="sendRegisterForm()" [disabled]="registerform.invalid">REGISTRATE</button>
 
     </form>
 </div>

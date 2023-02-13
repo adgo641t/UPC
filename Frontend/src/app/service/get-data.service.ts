@@ -11,7 +11,11 @@ export class GetDataService {
 
 
   sendLogin(User: User) {
-    console.log(User);
     return this.http.post('http://localhost:3001/login',User);
+  }
+
+  sendRegister(User: User){
+    console.log("dentro el servicio");
+    return this.http.post('http://localhost:3001/register',User);
   }
 }
