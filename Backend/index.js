@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 
@@ -20,18 +21,26 @@ app.use( bodyParser.urlencoded({ extended: false }) );
 app.use( bodyParser.json() );
 
 
-app.get('/', (req, res) => {
+app.post('/login', (req, res) => {
+  console.log(req.body);
+  const { _username, _password } = req.body;
 
-    connection.query('SELECT * FROM users', function (error, results, field) {
+    console.log(_username);
+    console.log(_password);
+
+      connection.query(`SELECT * FROM users WHERE Username = '${_username}' and password = '${_password}'`, function (error, results, field) {
         if (error) {
           res.status(400).send({ results: null })
-        } else {//si todos OK
-          res.status(200).send(JSON.stringify(results))
+          console.log("todo mal");
+
+        } else {//si todos OK.
+          console.log("todo ok");
+
+          res.status(200).send(JSON.stringify())
+
         }
       })//end of connection query
-});
-
-app.post('/register', (req, res) => {
+    
     
 });
 
