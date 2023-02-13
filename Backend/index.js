@@ -37,18 +37,15 @@ app.post('/login', (req, res) => {
           console.log("todo mal");
 
         } else {//si todos OK.
-          console.log("todo ok");
-
-          res.status(200).send(JSON.stringify())
-
+          jwt.sign({user: _username}, 'secret', (error, token) => {
+            localStorage.setItem('token', token);
+          });
         }
       })//end of connection query
      
 });
 
 app.post('/register', async (req, res) => {
-  console.log("entro al register");
-  console.log(req.body);
   const { _username, _password, _email } = req.body;
 
   let id = 5;
@@ -59,10 +56,9 @@ app.post('/register', async (req, res) => {
 
    connection.query(query, function (error, results, field) {
     if (error) {
-      res.status(400).send({ results: null })
-      console.log(error);
+      res.status(400).send({ results: error })
     } else {//si todos OK.
-      res.status(200).send(JSON.stringify("insertado"))
+      res.status(200).send(JSON.stringify("User Added Correctly"))
     }
   })
 });
