@@ -50,6 +50,6 @@ export class RegisterComponent implements OnInit {
 
     console.log(this.user);
 
-    this.usersService.sendRegister(this.user).subscribe(res => {console.log(res)});
+    this.usersService.sendRegister(this.user).subscribe((res: any) => {console.log(res)});
   }
 }
