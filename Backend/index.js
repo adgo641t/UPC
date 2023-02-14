@@ -28,18 +28,13 @@ app.post('/login', (req, res) => {
   console.log(req.body);
   const { _username, _password } = req.body;
 
-    console.log(_username);
-    console.log(_password);
-
       connection.query(`SELECT * FROM users WHERE Username = '${_username}' AND password = '${_password}'`, function (error, results, field) {
         if (error) {
           res.status(400).send({ results: null })
-          console.log("todo mal");
-
         } else {//si todos OK.
-          jwt.sign({user: _username}, 'secret', (error, token) => {
-            localStorage.setItem('token', token);
-          });
+          const token = jwt.sign(JSON.stringify({user: _username}), 'secretpassword');
+          console.log(token);
+          return res.status(200).send({'Acces_Token': token});
         }
       })//end of connection query
      
@@ -63,6 +58,11 @@ app.post('/register', async (req, res) => {
   })
 });
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.listen(3001,80, () => {
     console.log('Aquesta és la nostra API-REST que corre en http://localhost:3001')

@@ -34,7 +34,11 @@ export class LoginComponent implements OnInit {
     this.email = 'test';
     
     this.newUser = new User(this.LoginForm.get(['username'])?.value, this.LoginForm.get(['password'])?.value, this.email);
-    localStorage.getItem('token');
+
+    this.httpService.sendLogin(this.newUser).subscribe(res => {
+      console.log(res)
+        localStorage.setItem('User_Token', res.Acces_Token);
+    });   
 
   }
 
