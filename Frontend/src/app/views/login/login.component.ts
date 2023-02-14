@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { User } from 'src/app/model/user';
-import { GetDataService } from 'src/app/service/get-data.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private httpService: GetDataService, private formBuilder: FormBuilder) { }
+  constructor(private httpService: UserService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
   }

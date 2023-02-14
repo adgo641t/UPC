@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from 'src/app/model/user';
-import { GetDataService } from 'src/app/service/get-data.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   public user!: User;
 
-  constructor(public usersService: GetDataService) { }
+  constructor(public usersService: UserService) { }
 
   registerform = new FormGroup({
     name: new FormControl('', [
