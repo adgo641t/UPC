@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 09-02-2023 a las 12:55:36
+-- Tiempo de generación: 14-02-2023 a las 13:19:11
 -- Versión del servidor: 8.0.32-0ubuntu0.20.04.2
 -- Versión de PHP: 7.4.3-4ubuntu2.17
 
@@ -153,18 +153,23 @@ INSERT INTO `registro` (`id_j`, `id_p`) VALUES
 CREATE TABLE `users` (
   `id` int NOT NULL,
   `Username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `User_Email` varchar(30) NOT NULL,
+  `password` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `rols` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `Username`, `password`) VALUES
-(1, 'Adrian', 'adrian123'),
-(2, 'Pau', 'Pau123'),
-(3, 'Mario', 'Mario123'),
-(4, 'Edgar', 'Edgar123');
+INSERT INTO `users` (`id`, `Username`, `User_Email`, `password`, `rols`) VALUES
+(1, 'Adrian', 'Adrian@UPC.com', 'password1234', 'User'),
+(2, 'pepe', 'pepe@pepe.com', 'pepe12345', 'User'),
+(2, 'pepe', 'pepe1@pepe.com', 'pepe12345', 'User'),
+(3, 'pepe', 'pepe1@pepe.com', '[object Promise]', 'User'),
+(3, 'pepe', 'pep3@pepe.com', '[object Promise]', 'User'),
+(5, 'adrian', 'pepe@gmail.com', '$2b$05$OlwpRyXsLD5Tra.HMv92h.pJEg5RAPD9rsZM/LmXWfHhrwD0rLipu', 'User'),
+(5, 'pepe', 'adrian@.gmail.com', '$2b$04$fTNI.hnDKVi5rOVZL1ZboedYczdppWwmCt.JT2hDfquSs.vbI.5p6', 'User');
 
 --
 -- Índices para tablas volcadas
