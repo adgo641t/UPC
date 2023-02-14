@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
 
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private httpService: UserService, private formBuilder: FormBuilder) { }
+  constructor(private httpService: UserService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
     this.httpService.sendLogin(this.newUser).subscribe(res => {
       console.log(res)
         localStorage.setItem('User_Token', res.Acces_Token);
+        this.router.navigate(['/Home']);
     });   
 
   }

@@ -36,8 +36,11 @@
             <li class="nav-item active">
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li *ngIf="!isLoggedIn" class="nav-item">
               <a class="nav-link" href="/Login">Login</a>
+            </li>
+            <li *ngIf="isLoggedIn" class="nav-item">
+              <a class="nav-link" (click)="logout()">Logout</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/Register">Register</a>

@@ -10,7 +10,7 @@
                 <div class="form-data" v-if="!submitted">
                     <div class="forms-inputs mb-4"> 
                         <span>Email or username</span> 
-                        <input formControlName="username" id="username" name="username" ([ngModel])="username" autocomplete="off" type="text" v-model="email" v-bind:class="{'form-control':true, 'is-invalid' : !validEmail(email) && emailBlured}" v-on:blur="emailBlured = true" >
+                        <input formControlName="username" id="username" name="username" ([ngModel])="username"  type="text">
                         <div class="invalid-feedback">A valid email is required!</div>
                     </div>
                     <div class="forms-inputs mb-4"> 

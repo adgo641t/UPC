@@ -27,14 +27,21 @@ app.use( bodyParser.json() );
 app.post('/login', (req, res) => {
   console.log(req.body);
   const { _username, _password } = req.body;
+  const query = `SELECT * FROM users WHERE Username = '${_username}' AND password = '${_password}'`
 
-      connection.query(`SELECT * FROM users WHERE Username = '${_username}' AND password = '${_password}'`, function (error, results, field) {
+      connection.query(query, function (error, results, field) {
         if (error) {
-          res.status(400).send({ results: null })
+          res.status(500).send({ results: null });
         } else {//si todos OK.
-          const token = jwt.sign(JSON.stringify({user: _username}), 'secretpassword');
-          console.log(token);
-          return res.status(200).send({'Acces_Token': token});
+          //si el usuario existe.
+          if(results.length != 0){
+            const token = jwt.sign(JSON.stringify({user: _username}), 'secretpassword');
+            return res.status(200).send({'Acces_Token': token});
+            //si no hay usurio execute error
+          }else{
+            res.status(404).send({ results: null });
+
+          }
         }
       })//end of connection query
      
