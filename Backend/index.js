@@ -24,6 +24,40 @@ app.use( bodyParser.urlencoded({ extended: false }) );
 app.use( bodyParser.json() );
 
 
+
+
+
+
+app.get('/partidas',(req,res) => {
+const query = 'SELECT * FROM partidas';
+
+  connection.query(query, (err, result) => {
+    if (err){
+      res.status(500).send({ results: null });
+    } else {
+        if(result != 0){
+          res.status(200).send({ Data: result });
+        }
+    }
+  });
+});
+
+app.post('/createPartida',(req,res) => {
+  const query = 'SELECT * FROM partidas';
+  
+});
+
+app.post('/UpdatePartida',(req,res) => {
+  const query = 'SELECT * FROM partidas';
+  
+});
+
+app.post('/DeletePartida',(req,res) => {
+  const query = 'SELECT * FROM partidas';
+  
+});
+
+
 app.post('/login', (req, res) => {
   console.log(req.body);
   const { _username, _password } = req.body;
