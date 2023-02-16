@@ -11,18 +11,21 @@
     <table class="table table-hover table-borderless table-striped mt-5 text-center" style="background-color: #F28627;">
         <thead style="background-color: #c22222;">
             <tr>
-                <th scope="col">Ranking</th>
-                <th scope="col">Avatar</th>
-                <th scope="col">Jugador</th>
-                <th scope="col">Victorias</th>
+                <th scope="col">Id</th>
+                <th scope="col">Juego</th>
+                <th scope="col">Jugadores</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Ganador</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr *ngFor="let Ranking of ranking">
+                <th scope="row">{{Ranking.id}}</th>
+                <!-- <td>{{Ranking[Data].id}}</td> -->
+                <!-- <td>{{Ranking['jugadores']}}</td>
+                <td>{{Ranking['fecha']}</td>
+                <td>{{Ranking['hora']}</td>
+                <td>{{Ranking['ganador']}}</td> -->
             </tr>
         </tbody>
     </table>
