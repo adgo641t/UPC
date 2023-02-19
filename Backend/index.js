@@ -36,7 +36,7 @@ const query = 'SELECT * FROM partidas';
       res.status(500).send({ results: null });
     } else {
         if(result != 0){
-          res.status(200).send((result));
+          res.json(result);
         }
     }
   });

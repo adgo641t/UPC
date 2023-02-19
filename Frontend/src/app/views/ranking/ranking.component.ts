@@ -16,8 +16,8 @@ export class RankingComponent implements OnInit {
 
   ngOnInit(): void {
     this.rankingService.getPartidas().subscribe(
-      (data) => {
-         this.ranking.push(data);
+      (data: Partida[]) => {
+         this.ranking = data;
          console.log(this.ranking);
       }
   

@@ -7,7 +7,7 @@
 </div>
 
 <div id="tabla-ranking" class="container p-5">
-    <h1 class="text-center display-4 text-white">¡Jugadores con más partidas ganadas!</h1>
+    <h1 class="text-center display-4 text-black">¡Jugadores y sus Registros!</h1>
     <table class="table table-hover table-borderless table-striped mt-5 text-center" style="background-color: #F28627;">
         <thead style="background-color: #c22222;">
             <tr>
@@ -21,11 +21,10 @@
         <tbody>
             <tr *ngFor="let Ranking of ranking">
                 <th scope="row">{{Ranking.id}}</th>
-                <!-- <td>{{Ranking[Data].id}}</td> -->
-                <!-- <td>{{Ranking['jugadores']}}</td>
-                <td>{{Ranking['fecha']}</td>
-                <td>{{Ranking['hora']}</td>
-                <td>{{Ranking['ganador']}}</td> -->
+                <td>{{Ranking.juego}}</td>
+                <td>{{Ranking.jugadores}}</td>
+                <td>{{Ranking.fecha}}</td>
+                <td>{{Ranking.ganador}}</td>
             </tr>
         </tbody>
     </table>

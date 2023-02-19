@@ -10,7 +10,7 @@ export class PartidasService {
 
   constructor(private httpService: HttpClient) { }
 
-  getPartidas():Observable<Partida>{
-    return this.httpService.get<Partida>('http://localhost:3001/partidas');
+  getPartidas():Observable<Partida[]>{
+    return this.httpService.get<Partida[]>('http://localhost:3001/partidas');
   }
 }
