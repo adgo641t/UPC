@@ -53,8 +53,19 @@ app.post('/UpdatePartida',(req,res) => {
 });
 
 app.post('/DeletePartida',(req,res) => {
-  const query = 'SELECT * FROM partidas';
-  
+  const query = 'DELETE FROM partidas WHERE id = ' + req.body.id;
+
+  connection.query(query, (err, result) => {
+    if (err){
+      res.status(500).send({ results: null });
+    } else {
+        if(result != 0){
+          res.json(result);
+        }else{
+          res.status(404).send({results: null});
+        }
+    }
+  });  
 });
 
 
