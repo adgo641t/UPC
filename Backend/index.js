@@ -27,7 +27,10 @@ app.use( bodyParser.json() );
 
 
 
-
+/**
+ * Gets all the partidas from the database
+ * and sendit to the service in angular
+ */
 app.get('/partidas',(req,res) => {
 const query = 'SELECT * FROM partidas';
 
@@ -42,16 +45,42 @@ const query = 'SELECT * FROM partidas';
   });
 });
 
-app.post('/createPartida',(req,res) => {
-  const query = 'SELECT * FROM partidas';
+/**
+ * Gets the object ranking form the ranking service
+ * and tries to insert it into the database
+ * if have any error return error message
+ */
+app.post('/CreatePartida',(req,res) => {
+  const { id, juego, jugadores,fecha,hora,ganador } = req.body;
+
+  const query = `INSERT INTO partidas (id, juego, jugadores, fecha, hora, ganador) VALUES ('${id}', '${juego}', '${jugadores}', '${fecha}', '${hora}', '${ganador}');`;
   
+    connection.query(query , (err, result) => {
+      if (err){
+        res.status(500).send({ results: null });
+        console.log(err);
+      } else {
+          if(result != 0){
+            res.json(result);
+          }else{
+            res.status(404).send({results: null});
+          }
+      }
+    })
 });
 
+/**
+ * gets the object partida
+ */
 app.post('/UpdatePartida',(req,res) => {
   const query = 'SELECT * FROM partidas';
   
 });
 
+/**
+ * gets the object partida from the ranking service in angular
+ * and tries to delete the object partida with the given id
+ */
 app.post('/DeletePartida',(req,res) => {
   const query = 'DELETE FROM partidas WHERE id = ' + req.body.id;
 
@@ -69,6 +98,10 @@ app.post('/DeletePartida',(req,res) => {
 });
 
 
+/**
+ * gets the Username and password from the User service in angular and tries to
+ * compare the username and password to login and return a token for the user
+ */
 app.post('/login', (req, res) => {
   console.log(req.body);
   const { _username, _password } = req.body;
@@ -92,6 +125,10 @@ app.post('/login', (req, res) => {
      
 });
 
+/**
+ * This method gets the new User wants to be register in the database
+ * and puts the new user in the database if have any error returns a status
+ */
 app.post('/register', async (req, res) => {
   const { _username, _password, _email } = req.body;
 
@@ -109,6 +146,7 @@ app.post('/register', async (req, res) => {
     }
   })
 });
+
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from

@@ -16,25 +16,60 @@
                 <th scope="col">Jugadores</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Ganador</th>
+                <th scope="col">Hora</th>
                 <th scope="col">Delete</th>
                 <th scope="col">Modify</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let Ranking of ranking" (click)="onSelect(Ranking)" [class.selected]="Ranking === selectedRanking">
+            <tr *ngFor="let Ranking of ranking | paginate: {itemsPerPage: itemsPerPage, currentPage: currentPage}" (click)="onSelect(Ranking)" [class.selected]="Ranking === selectedRanking">
                 <th scope="row">{{Ranking.id}}</th>
                 <td>{{Ranking.juego}}</td>
                 <td>{{Ranking.jugadores}}</td>
                 <td>{{Ranking.fecha}}</td>
+                <td>{{Ranking.hora}}</td>
                 <td>{{Ranking.ganador}}</td>
                 <td><button class="btn btn-primary" (click)="DeleteRanking(Ranking)">Delete</button></td>
-                <td><button class="btn btn-primary">Modify</button></td>
+                <td><button class="btn btn-primary" (click)="ShowUpdateForm()">Modify</button></td>
             </tr>
         </tbody>
     </table>
+    <!--Go to create Ranking Form-->
+    <button class="btn btn-primary" (click)="GoToRankingForm()">Go to create new data</button>
+    <!--Update form-->
     <div class="row">
-        <!-- <div class="col-sm-12 d-flex justify-content-end">
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        </div> -->
+         <div class="col-sm-12 d-flex justify-content-end">
+            <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+        </div> 
     </div>
+    <br>
+    <form [formGroup]="UpdateForm" [ngStyle]="{'display': displayForm ? 'block':'none'}" action="" method="get">
+        <h1>Update</h1>
+        <label for="id">
+            <p>ID</p>
+            <input value="{{selectedRanking.id}}" formControlName="{{selectedRanking.id}}"  type="number" name="id" id="id">
+        </label>
+        <label for="id">
+            <p>Juego</p>
+            <input value="{{selectedRanking.juego}}" formControlName="{{selectedRanking.juego}}"   type="number" name="juego" id="juego">
+        </label>
+        <label for="id">
+            <p>Jugadores</p>
+            <input value="{{selectedRanking.jugadores}}" formControlName="{{selectedRanking.jugadores}}" type="number" name="jugadores" id="jugadores">
+        </label>
+        <label for="id">
+            <p>Fecha</p>
+            <input value="{{selectedRanking.fecha}}" formControlName="{{selectedRanking.fecha}}"  type="text" name="fecha" id="fecha">
+        </label>
+        <label for="id">
+            <p>Hora</p>
+            <input value="{{selectedRanking.hora}}" formControlName="{{selectedRanking.hora}}" ([ngModel])="hora" type="text" name="hora" id="hora">
+        </label>
+        <label for="id">
+            <p>Ganador</p>
+            <input value="{{selectedRanking.ganador}}" formControlName="{{selectedRanking.ganador}}"  ([ngModel])="ganador" type="text" name="ganador" id="ganador">
+        </label>
+        <br>
+        <input (click)="Update(selectedRanking)" value="Envia" class="btn btn-primary" type="submit" name="" id="">
+    </form>
 </div>
