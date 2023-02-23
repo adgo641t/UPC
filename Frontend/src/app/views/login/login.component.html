@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
     body {
         background: #000
     }
@@ -44,10 +44,29 @@
     .bxs-badge-check {
         font-size: 90px
     }
-</style>
-<h1 class="text-center">Login</h1>
+</style> -->
+<div class="d-flex py-5">
+    <div class="col-3 ps-3">
+        <a href="/Home" class="text-decoration-none">
+            <img src="../../../assets/resources/img/arrow-home.svg" alt="" width="20px">
+            <span class="ps-2">Go Home</span> 
+        </a>         
+    </div>
+    <div class="col-2"></div>
+    <div class="col-2 text-center">
+        <img src="../../../assets/resources/img/logo.svg" alt="logo de MULTIJUEGOS">
+        <span class="ps-2">MULTIJUEGOS</span>
+    </div>
+</div>
 
-<div class="container m-5">
+<!-- <div class="text-center py-5">
+    <img src="../../../assets/resources/img/logo.svg" alt="logo de MULTIJUEGOS">
+    <span class="ps-2">MULTIJUEGOS</span>
+</div> -->
+
+<h2 class="text-center pb-5">Login</h2>
+
+<!-- <div class="container m-5">
     <form action="" method="post" [formGroup]="LoginForm">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
@@ -74,4 +93,63 @@
             </div>
         </div>
     </form>
-</div>
+</div> -->
+
+
+
+<section class="w-100 p-4 d-flex justify-content-center pb-4">
+<form action="" method="post" [formGroup]="LoginForm">
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input type="email" id="form2Example1" class="form-control bg-transparent" placeholder="Username"/>
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" id="form2Example2" class="form-control bg-transparent" placeholder="Password"/>  
+    </div>
+  
+    <!-- 2 column grid layout for inline styling -->
+    <!-- <div class="row mb-4"> -->
+      <!-- <div class="col d-flex justify-content-center">
+        
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+          <label class="form-check-label" for="form2Example31"> Remember me </label>
+        </div>
+      </div> -->
+  
+      <!-- <div class="col">
+        
+        <a href="#!">Forgot password?</a>
+      </div> -->
+    <!-- </div> -->
+  
+    <!-- Submit button -->
+    <div class="text-center">
+    <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+    </div>
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Not a member? <a href="/Register" class="text-decoration-none text-dark">Register</a></p>
+      <!-- <p>or sign up with:</p> -->
+      <!-- <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+  
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-google"></i>
+      </button>
+  
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-twitter"></i>
+      </button>
+  
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-github"></i>
+      </button> -->
+    </div>
+
+  </form>
+</section> 
+  

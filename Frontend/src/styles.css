@@ -28,3 +28,9 @@ body{
 .titulo{
     background-color: #8C271E;
 }
+
+.text-logo{
+    font-size: 25px;
+    align-items: center;
+    display: flex;
+}
