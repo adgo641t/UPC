@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RepitePassDirective } from './directives/repite-pass.directive';
 import { RankingComponent } from './views/ranking/ranking.component';
 import { AuthInterceptorService } from './service/auth-interceptor.service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CreateRankingComponent } from './views/create-ranking/create-ranking.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,13 +29,15 @@ import { AuthInterceptorService } from './service/auth-interceptor.service';
     FooterComponent,
     RepitePassDirective,
     RankingComponent,
+    CreateRankingComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [
     {

@@ -1,0 +1,40 @@
+<div class="container">
+    <div >
+        <form [formGroup]="RankingForm" class="form-group" action="" method="post">
+            <label for="ID">
+            <p>ID</p>
+            <input type="number" formControlName="id">
+            </label>
+            <br>
+            <label for="Juego">
+                <p>ID del juego</p>
+                <input class="form-control" type="text"formControlName="juego" required>
+            </label>
+            <br>
+            <label for="Jugadores">
+                <p>Nº de Jugadores</p>
+                <input class="form-control" type="number" formControlName="jugadores" required>
+            </label>
+            <br>
+            <label for="Fecha">
+                <p>Dia que se Gano</p>
+                <input class="form-control" type="text"  formControlName="fecha" required>
+            </label>
+            <br>
+            <label for="Ganador" required>
+                <p>¿Quien Gano?</p>
+                <input class="form-control" type="text" formControlName="ganador" required>
+            </label>
+            <br>
+            <label for="Hora">
+                <p>Hora en que se Jugo</p>
+                <input class="form-control" type="text" formControlName="hora" required>
+            </label>
+            <br>
+            <label for="Send">
+                <br>
+                <button class="btn btn-primary" type="button" (click)="CreateNewRanking()">Send</button>
+            </label>
+        </form>
+    </div>
+</div>

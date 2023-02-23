@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { windowTime } from 'rxjs';
 import { Partida } from 'src/app/model/partida';
@@ -13,9 +14,33 @@ export class RankingComponent implements OnInit {
 
    ranking: Partida[] = []  ;
    selectedRanking!: Partida;
+   newRanking!: Partida;
+   
+   currentPage = 1;
+   itemsPerPage = 10;
+
+   displayForm=false;
+
+   id!:number;
+   juego!:string;
+   jugadores!:string;
+   fecha!:string;
+   hora!:string;
+   ganador!:string;
+
+   UpdateForm = this.formBuilder.group({
+    id: '',
+    juego: '',
+    jugadores: '',
+    fecha: '',
+    hora: '',
+    ganador: '',
+  });
 
 
-  constructor(private rankingService: PartidasService,  private router: Router) { }
+
+
+  constructor(private rankingService: PartidasService,  private router: Router,private formBuilder: FormBuilder) { }
 
 
   /**
@@ -26,7 +51,7 @@ export class RankingComponent implements OnInit {
     this.rankingService.getPartidas().subscribe(
       (data: Partida[]) => {
          this.ranking = data;
-         console.log(this.ranking);
+         this.selectedRanking = data[1];
       }
   
     );
@@ -69,6 +94,27 @@ export class RankingComponent implements OnInit {
     this.router.navigate(['/Ranking'])
   }
 
+  ShowUpdateForm():void {
+    this.displayForm = true;
+  }
+
+  Update(selectedRanking:Partida): void {
+      
+    console.log(this.UpdateForm.get(['ganador'])?.value);
+    this.newRanking = new Partida(
+      this.UpdateForm.get(['id'])?.value,
+      this.UpdateForm.get(['juego'])?.value,
+      this.UpdateForm.get(['jugadores'])?.value,
+      this.UpdateForm.get(['fecha'])?.value,
+      this.UpdateForm.get(['hora'])?.value,
+      this.UpdateForm.get(['ganador'])?.value
+    );
+    console.log(this.newRanking);
+  }
+
+  GoToRankingForm(): void {
+    this.router.navigate(['/Create']);
+  }
 
 }
 

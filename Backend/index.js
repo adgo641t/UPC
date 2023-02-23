@@ -42,8 +42,8 @@ const query = 'SELECT * FROM partidas';
   });
 });
 
-app.post('/createPartida',(req,res) => {
-  const query = 'SELECT * FROM partidas';
+app.post('/CreatePartida',(req,res) => {
+  console.log(req.body);
   
 });
 

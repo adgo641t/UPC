@@ -31,6 +31,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * this method send a request to the node 
+   * and compare the input of user and the user 
+   * of the database
+   */
   sendLogin(){
     this.email = 'test';
     
