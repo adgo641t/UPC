@@ -33,6 +33,12 @@ export class CreateRankingComponent {
   constructor(private rankingService: PartidasService,  private router: Router,private formBuilder: FormBuilder) { }
 
 
+  /**
+   * This methods create a new ranking
+   * getting the values from the ranking form
+   * and creating a new ranking object
+   * and send the objecto to the server
+   */
   CreateNewRanking(): void {
 
     this.newRanking = new Partida(
@@ -44,8 +50,7 @@ export class CreateRankingComponent {
       this.RankingForm.get(['ganador'])?.value);
 
       this.rankingService.createPartida(this.newRanking).subscribe(data => {
-        this.router.navigate(['/rankings']);
+        this.router.navigate(['/ranking']);
       })
-
   }
 }
