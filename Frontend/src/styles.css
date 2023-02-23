@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url('../src/assets/fonts/OpenSans-Regular.ttf');
+}
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url('../src/assets/fonts/OpenSans-Bold.ttf');
+}
+
+*{
+    font-family:'Open Sans', sans-serif;
+    color: #EEE5E5;
+}
+
+p{
+    font-family: 'OpenSans-Regular', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'OpenSans-Bold', sans-serif;
+}
+
+body{
+    background-color: #19647E;
+}
+
+.titulo{
+    background-color: #8C271E;
+}
