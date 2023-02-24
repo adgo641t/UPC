@@ -1,0 +1,22 @@
+.card-text {
+    color: black;
+  }
+  
+  /* .card {
+    height: 498px;
+    border: 0;
+  } */
+  
+  .cara>img {
+    width: 248px;
+    height: 498px;
+  }
+  
+  p {
+    color: white;
+  }
+  
+  .card-body>a {
+    color: #590B0B;
+    margin-left: 3px;
+  }
