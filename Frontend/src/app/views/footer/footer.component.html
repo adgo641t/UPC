@@ -1,4 +1,4 @@
-<footer class="text-center text-white bg-dark">
+<footer class="text-center text-white bg-dark" *ngIf="(data != '/Login' && data != '/Register'  )">
   <!-- Grid container -->
 
   <div class=" d-flex flex-column py-3">
@@ -10,7 +10,7 @@
     <h4 class="text-center">¿Estás listo?</h4>
     <br>
     <div class="mx-auto">
-      <button type="button" class="btn btn-danger" routerLink="/login">Register</button>
+      <button type="button" class="btn btn-danger" routerLink="/Login">Login</button>
     </div>
   </div>
 
@@ -56,10 +56,6 @@
         </div>
     </div>
 </section>
-
-
-
-
 
 
   <!-- Grid container -->
