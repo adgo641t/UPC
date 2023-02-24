@@ -1,5 +1,18 @@
-<h1>Register Form</h1>
-<div>
+<div class="d-flex pt-5">
+    <div class="col-3 ps-3">
+        <a href="/Home" class="text-decoration-none">
+            <img src="../../../assets/resources/img/arrow-home.svg" alt="" width="20px">
+            <span class="ps-2">Go Home</span>
+        </a>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-2 text-center">
+        <img src="../../../assets/resources/img/logo.svg" alt="logo de MULTIJUEGOS">
+        <span class="ps-2">MULTIJUEGOS</span>
+    </div>
+</div>
+
+<!-- <div>
     <form [formGroup]="registerform">
         <div class="row g-1 mb-3">
             <div class="mx-md-3 text-center text-md-end col-12 col-md-4 col-lg-3">
@@ -81,7 +94,92 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-success" (click)="sendRegisterForm()" [disabled]="registerform.invalid">REGISTRATE</button>
-
+        
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-block mb-4" (click)="sendRegisterForm()" [disabled]="registerform.invalid">Register</button>
+        </div>
     </form>
+</div> -->
+
+<div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card">
+                <div class="card-body p-5">
+                    <h2 class="text-uppercase text-center mb-5 text-dark">Create an account</h2>
+
+                    <form [formGroup]="registerform">
+
+                        <div class="form-outline mb-4">
+                            <input type="email" id="mail" formControlName="mail" class="form-control form-control-lg"
+                                placeholder="Email" />
+                        </div>
+                        <div class="">
+                            <span class="text-danger"
+                                *ngIf="this.registerform.get('mail')?.errors?.['pattern'] && this.registerform.get('mail')?.touched">
+                                Does not have email format!
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="this.registerform.get('mail')?.errors?.['required'] && this.registerform.get('mail')?.touched">
+                                the mail can not be empty!
+                            </span>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="text" id="name" formControlName="name" class="form-control form-control-lg"
+                                placeholder="Username" />
+                        </div>
+                        <div class="">
+                            <span class="text-danger"
+                                *ngIf="this.registerform.get('name')?.errors?.['required'] && this.registerform.get('name')?.touched">
+                                The name can not be empty!
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="this.registerform.get('name')?.errors?.['minlength'] && this.registerform.get('name')?.touched">
+                                The name need 3 characters at least!
+                            </span>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="password" formControlName="password"
+                                class="form-control form-control-lg" placeholder="Password" />
+                        </div>
+                        <div class="">
+                            <span class="text-danger"
+                                *ngIf="this.registerform.get('password')?.errors?.['required'] && this.registerform.get('password')?.touched">
+                                The password can not be empty!
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="this.registerform.get('password')?.errors?.['minlength'] && this.registerform.get('password')?.touched">
+                                The password need 8 characters at least!
+
+                            </span>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="rpassword" formControlName="rpassword" appRepiteCont
+                                [parametro]="this.registerform.value.password" class="form-control form-control-lg"
+                                placeholder="Repeat your password" />
+                        </div>
+                        <div class="">
+                            <span class="text-danger"
+                                *ngIf="this.registerform.get('rpassword')?.errors?.['rpassword'] && this.registerform.get('rpassword')?.touched">
+                                the passwords doesn't match!
+                            </span>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body"
+                                (click)="sendRegisterForm()" [disabled]="registerform.invalid">Register</button>
+                        </div>
+
+                        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/Login"
+                                class="text-dark">Login here</a></p>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
