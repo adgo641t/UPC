@@ -17,6 +17,7 @@ import { RankingComponent } from './views/ranking/ranking.component';
 import { AuthInterceptorService } from './service/auth-interceptor.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CreateRankingComponent } from './views/create-ranking/create-ranking.component';
+import { AboutusComponent } from './views/aboutus/aboutus.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { CreateRankingComponent } from './views/create-ranking/create-ranking.co
     RepitePassDirective,
     RankingComponent,
     CreateRankingComponent,
+    AboutusComponent,
   ],
   imports: [
     BrowserModule,
