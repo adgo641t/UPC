@@ -1,56 +1,9 @@
-<!-- <style>
-    body {
-        background: #000
-    }
-
-    .card {
-        border: none;
-        height: 320px
-    }
-
-    .forms-inputs {
-        position: relative
-    }
-
-    .forms-inputs span {
-        position: absolute;
-        top: -18px;
-        left: 10px;
-        background-color: #fff;
-        padding: 5px 10px;
-        font-size: 15px
-    }
-
-    .forms-inputs input {
-        height: 50px;
-        border: 2px solid #eee
-    }
-
-    .forms-inputs input:focus {
-        box-shadow: none;
-        outline: none;
-        border: 2px solid #000
-    }
-
-    .btn {
-        height: 50px
-    }
-
-    .success-data {
-        display: flex;
-        flex-direction: column
-    }
-
-    .bxs-badge-check {
-        font-size: 90px
-    }
-</style> -->
 <div class="d-flex py-5">
     <div class="col-3 ps-3">
         <a href="/Home" class="text-decoration-none">
             <img src="../../../assets/resources/img/arrow-home.svg" alt="" width="20px">
-            <span class="ps-2">Go Home</span> 
-        </a>         
+            <span class="ps-2">Go Home</span>
+        </a>
     </div>
     <div class="col-2"></div>
     <div class="col-2 text-center">
@@ -59,12 +12,6 @@
     </div>
 </div>
 
-<!-- <div class="text-center py-5">
-    <img src="../../../assets/resources/img/logo.svg" alt="logo de MULTIJUEGOS">
-    <span class="ps-2">MULTIJUEGOS</span>
-</div> -->
-
-<h2 class="text-center pb-5">Login</h2>
 
 <!-- <div class="container m-5">
     <form action="" method="post" [formGroup]="LoginForm">
@@ -96,60 +43,70 @@
 </div> -->
 
 
+<!-- <section class="w-100 p-4 d-flex justify-content-center pb-4">
+<form action="" method="post" [formGroup]="LoginForm"> -->
+<!-- Email input -->
+<!-- <div class="form-outline mb-4">
+      <input formControlName="username" id="username" name="username" [(ngModel)]="username"
+      type="text" class="form-control bg-transparent" placeholder="Username"/>
+      <div class="invalid-feedback">A valid email is required!</div>
+    </div> -->
 
-<section class="w-100 p-4 d-flex justify-content-center pb-4">
-<form action="" method="post" [formGroup]="LoginForm">
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-      <input type="email" id="form2Example1" class="form-control bg-transparent" placeholder="Username"/>
-    </div>
-  
-    <!-- Password input -->
-    <div class="form-outline mb-4">
-      <input type="password" id="form2Example2" class="form-control bg-transparent" placeholder="Password"/>  
-    </div>
-  
-    <!-- 2 column grid layout for inline styling -->
-    <!-- <div class="row mb-4"> -->
-      <!-- <div class="col d-flex justify-content-center">
-        
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-          <label class="form-check-label" for="form2Example31"> Remember me </label>
-        </div>
-      </div> -->
-  
-      <!-- <div class="col">
-        
-        <a href="#!">Forgot password?</a>
-      </div> -->
-    <!-- </div> -->
-  
-    <!-- Submit button -->
-    <div class="text-center">
+<!-- Password input -->
+<!-- <div class="form-outline mb-4">
+      <input formControlName="password" id="password" name="password" [(ngModel)]="password"
+      autocomplete="off" type="password" v-model="password"
+      v-bind:class="{'form-control':true, 'is-invalid' : !validPassword(password) && passwordBlured}"
+      v-on:blur="passwordBlured = true" class="form-control bg-transparent" placeholder="Password"/>  
+      <div class="invalid-feedback">Password must be 8 character!</div>
+    </div> -->
+
+<!-- Submit button -->
+<!-- <div class="text-center">
     <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
-    </div>
-    <!-- Register buttons -->
-    <div class="text-center">
-      <p>Not a member? <a href="/Register" class="text-decoration-none text-dark">Register</a></p>
-      <!-- <p>or sign up with:</p> -->
-      <!-- <button type="button" class="btn btn-link btn-floating mx-1">
-        <i class="fab fa-facebook-f"></i>
-      </button>
-  
-      <button type="button" class="btn btn-link btn-floating mx-1">
-        <i class="fab fa-google"></i>
-      </button>
-  
-      <button type="button" class="btn btn-link btn-floating mx-1">
-        <i class="fab fa-twitter"></i>
-      </button>
-  
-      <button type="button" class="btn btn-link btn-floating mx-1">
-        <i class="fab fa-github"></i>
-      </button> -->
-    </div>
+</div> -->
+<!-- Register buttons -->
+<!-- <div class="text-center">
+    <p>Not a member? <a href="/Register" class="text-decoration-none text-dark">Register</a></p>
+</div> -->
 
-  </form>
-</section> 
-  
+<!-- </form>
+</section>  -->
+
+<div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card">
+                <div class="card-body p-5">
+                    <h2 class="text-uppercase text-center mb-5 text-dark">Login</h2>
+
+                    <form method="post" [formGroup]="LoginForm">
+
+                        <div class="form-outline mb-4">
+                            <input type="text" id="name" class="form-control form-control-lg" placeholder="Username" />
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="password" class="form-control form-control-lg"
+                                placeholder="Password" />
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary btn-block mb-4" (click)="sendLogin()"
+                                v-on:click.stop.prevent="submit">Sign in</button>
+                        </div>
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p class="text-muted mb-0">Not a member? <a href="/Register" class="text-dark">Register</a>
+                            </p>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
