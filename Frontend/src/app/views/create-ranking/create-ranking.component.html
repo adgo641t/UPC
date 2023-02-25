@@ -1,38 +1,44 @@
 <div class="container">
-    <div >
+    <div class="py-4">
         <form [formGroup]="RankingForm" class="form-group" action="" method="post">
-            <label for="ID">
-            <p>ID</p>
-            <input type="number" formControlName="id">
-            </label>
-            <br>
+            <div class="pb-3">
+                <label for="ID">
+                    <p>ID</p>
+                    <input class="form-control" type="number" formControlName="id">
+                </label>
+            </div>
+            <div class="pb-3">
             <label for="Juego">
                 <p>ID del juego</p>
-                <input class="form-control" type="text"formControlName="juego" required>
+                <input class="form-control" type="text" formControlName="juego" required>
             </label>
-            <br>
+        </div>
+            <div class="pb-3">
             <label for="Jugadores">
                 <p>Nº de Jugadores</p>
                 <input class="form-control" type="number" formControlName="jugadores" required>
             </label>
-            <br>
+            </div>
+            <div class="pb-3">
             <label for="Fecha">
                 <p>Dia que se Gano</p>
-                <input class="form-control" type="text"  formControlName="fecha" required>
+                <input class="form-control" type="text" formControlName="fecha" required>
             </label>
-            <br>
+            </div>
+            <div class="pb-3">
             <label for="Ganador" required>
                 <p>¿Quien Gano?</p>
                 <input class="form-control" type="text" formControlName="ganador" required>
             </label>
-            <br>
+            </div>
+            <div class="pb-3">
             <label for="Hora">
                 <p>Hora en que se Jugo</p>
                 <input class="form-control" type="text" formControlName="hora" required>
             </label>
-            <br>
+            </div>
             <label for="Send">
-                <br>
+
                 <button class="btn btn-primary" type="button" (click)="CreateNewRanking()">Send</button>
             </label>
         </form>
